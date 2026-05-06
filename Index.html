@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alba Salina - Eskimos Lala</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ice: { 50: '#eef8ff', 100: '#d9eeff', 200: '#bce2ff', 300: '#8ed1ff', 400: '#59b8ff', 500: '#3399ff', 600: '#1a7af5' },
+            frost: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf' },
+            berry: { 500: '#ec4899', 600: '#db2777' },
+            cream: { 50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+    .font-brand { font-family: 'Fredoka', sans-serif; }
+    @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-12px); } }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+    .float-anim-delay { animation: float 3s ease-in-out 1s infinite; }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.8s ease forwards; }
+    .fade-up-d1 { animation: fadeUp 0.8s 0.2s ease forwards; opacity:0; }
+    .fade-up-d2 { animation: fadeUp 0.8s 0.4s ease forwards; opacity:0; }
+    .fade-up-d3 { animation: fadeUp 0.8s 0.6s ease forwards; opacity:0; }
+    .product-card:hover { transform: translateY(-8px) scale(1.02); }
+    .product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app" class="w-full h-full overflow-auto bg-ice-50"><!-- Navbar -->
+   <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+     <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-ice-400 to-frost-300 flex items-center justify-center"><span class="text-white text-lg">❄️</span>
+      </div><span id="nav-brand" class="font-brand text-xl font-bold text-ice-600">Alba Salina</span>
+     </div>
+     <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-600"><a href="#productos" class="hover:text-ice-500 transition">Productos</a> <a href="#nosotros" class="hover:text-ice-500 transition">Nosotros</a> <a href="#contacto" class="hover:text-ice-500 transition">Contacto</a>
+     </div><button id="mobile-menu-btn" class="md:hidden text-gray-600"><i data-lucide="menu"></i></button>
+    </div>
+   </nav><!-- Hero -->
+   <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-ice-100 via-frost-50 to-ice-50"></div>
+    <div class="absolute top-20 right-10 w-72 h-72 bg-frost-200/30 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-56 h-56 bg-ice-200/40 rounded-full blur-3xl"></div>
+    <div class="relative max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+     <div class="flex-1 text-center lg:text-left">
+      <h1 id="hero-title" class="font-brand text-5xl md:text-6xl font-bold text-gray-800 fade-up">Alba Salina</h1>
+      <p id="hero-subtitle" class="mt-4 text-xl text-gray-600 fade-up-d1">Distribuidor autorizado Lala Eskimo</p>
+      <p class="mt-3 text-gray-500 fade-up-d2 max-w-md mx-auto lg:mx-0">Los helados favoritos de Nicaragua directo a tu negocio. Frescura, calidad y variedad garantizada.</p><a href="#contacto" id="hero-cta" class="inline-block mt-8 px-8 py-4 bg-gradient-to-r from-ice-500 to-frost-400 text-white font-bold rounded-full shadow-lg shadow-ice-300/50 hover:shadow-xl hover:scale-105 transition-all fade-up-d3">Haz tu pedido</a>
+     </div>
+     <div class="flex-1 flex justify-center items-center gap-6">
+      <div class="float-anim">
+       <div class="w-36 h-48 bg-gradient-to-b from-cream-100 to-cream-200 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4"><span class="text-5xl">🍦</span> <span class="mt-2 text-sm font-semibold text-gray-700">Conos</span>
+       </div>
+      </div>
+      <div class="float-anim-delay mt-8">
+       <div class="w-36 h-48 bg-gradient-to-b from-berry-500/10 to-berry-500/20 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4"><span class="text-5xl">🍨</span> <span class="mt-2 text-sm font-semibold text-gray-700">Paletas</span>
+       </div>
+      </div>
+      <div class="float-anim hidden sm:block">
+       <div class="w-36 h-48 bg-gradient-to-b from-ice-100 to-ice-200 rounded-3xl shadow-xl flex flex-col items-center justify-center p-4"><span class="text-5xl">🧊</span> <span class="mt-2 text-sm font-semibold text-gray-700">Botes</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Productos -->
+   <section id="productos" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="font-brand text-3xl md:text-4xl font-bold text-center text-gray-800">Nuestros Productos</h2>
+     <p class="text-center text-gray-500 mt-3 max-w-lg mx-auto">Toda la línea de helados Lala Eskimo disponible para ti</p>
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      <div class="product-card bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
+       <div class="h-40 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+        <span class="text-6xl">🍓</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-brand font-bold text-lg text-gray-800">Paletas de Agua</h3>
+        <p class="text-gray-500 text-sm mt-1">Fresa, limón, mango, tamarindo y más sabores refrescantes.</p><span class="inline-block mt-3 text-ice-500 font-semibold text-sm">Ver más →</span>
+       </div>
+      </div>
+      <div class="product-card bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
+       <div class="h-40 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
+        <span class="text-6xl">🍦</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-brand font-bold text-lg text-gray-800">Conos &amp; Barquillos</h3>
+        <p class="text-gray-500 text-sm mt-1">Crujientes conos rellenos de helado cremoso con coberturas.</p><span class="inline-block mt-3 text-ice-500 font-semibold text-sm">Ver más →</span>
+       </div>
+      </div>
+      <div class="product-card bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
+       <div class="h-40 bg-gradient-to-br from-blue-100 to-cyan-200 flex items-center justify-center">
+        <span class="text-6xl">🍨</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-brand font-bold text-lg text-gray-800">Paletas de Leche</h3>
+        <p class="text-gray-500 text-sm mt-1">Nuez, chocolate, vainilla y combinaciones irresistibles.</p><span class="inline-block mt-3 text-ice-500 font-semibold text-sm">Ver más →</span>
+       </div>
+      </div>
+      <div class="product-card bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
+       <div class="h-40 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+        <span class="text-6xl">🪣</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-brand font-bold text-lg text-gray-800">Botes &amp; Litros</h3>
+        <p class="text-gray-500 text-sm mt-1">Para toda la familia. Disponibles en múltiples sabores y presentaciones.</p><span class="inline-block mt-3 text-ice-500 font-semibold text-sm">Ver más →</span>
+       </div>
+      </div>
+      <div class="product-card bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
+       <div class="h-40 bg-gradient-to-br from-green-100 to-teal-200 flex items-center justify-center">
+        <span class="text-6xl">🥤</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-brand font-bold text-lg text-gray-800">Vasitos &amp; Sándwiches</h3>
+        <p class="text-gray-500 text-sm mt-1">Prácticos y deliciosos para llevar a donde quieras.</p><span class="inline-block mt-3 text-ice-500 font-semibold text-sm">Ver más →</span>
+       </div>
+      </div>
+      <div class="product-card bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer">
+       <div class="h-40 bg-gradient-to-br from-red-100 to-orange-200 flex items-center justify-center">
+        <span class="text-6xl">🎉</span>
+       </div>
+       <div class="p-5">
+        <h3 class="font-brand font-bold text-lg text-gray-800">Novedades</h3>
+        <p class="text-gray-500 text-sm mt-1">Las últimas creaciones y ediciones especiales de temporada.</p><span class="inline-block mt-3 text-ice-500 font-semibold text-sm">Ver más →</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Nosotros -->
+   <section id="nosotros" class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+     <h2 class="font-brand text-3xl md:text-4xl font-bold text-gray-800">¿Por qué elegirnos?</h2>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
+      <div class="flex flex-col items-center">
+       <div class="w-16 h-16 rounded-2xl bg-ice-100 flex items-center justify-center mb-4">
+        <i data-lucide="truck" class="text-ice-500 w-8 h-8"></i>
+       </div>
+       <h3 class="font-bold text-gray-800">Entrega Puntual</h3>
+       <p class="text-gray-500 text-sm mt-2">Llevamos tu pedido en tiempo y forma con cadena de frío garantizada.</p>
+      </div>
+      <div class="flex flex-col items-center">
+       <div class="w-16 h-16 rounded-2xl bg-frost-100 flex items-center justify-center mb-4">
+        <i data-lucide="shield-check" class="text-frost-400 w-8 h-8"></i>
+       </div>
+       <h3 class="font-bold text-gray-800">Calidad Lala</h3>
+       <p class="text-gray-500 text-sm mt-2">Respaldados por una de las marcas más confiables de Nicaragua.</p>
+      </div>
+      <div class="flex flex-col items-center">
+       <div class="w-16 h-16 rounded-2xl bg-cream-100 flex items-center justify-center mb-4">
+        <i data-lucide="heart" class="text-berry-500 w-8 h-8"></i>
+       </div>
+       <h3 class="font-bold text-gray-800">Atención Personalizada</h3>
+       <p class="text-gray-500 text-sm mt-2">Te asesoramos para elegir los productos ideales para tu negocio.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contacto -->
+   <section id="contacto" class="py-20 px-6 bg-gradient-to-br from-ice-100 to-frost-50">
+    <div class="max-w-3xl mx-auto">
+     <h2 class="font-brand text-3xl md:text-4xl font-bold text-center text-gray-800">Contáctanos</h2>
+     <p class="text-center text-gray-500 mt-3">¿Listo para surtir tu negocio? Escríbenos y te atendemos al instante.</p>
+     <form id="contact-form" class="mt-10 bg-white rounded-2xl shadow-lg p-8 space-y-5">
+      <div><label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Nombre</label> <input id="name" type="text" placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ice-400 focus:ring-2 focus:ring-ice-100 outline-none transition">
+      </div>
+      <div><label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Teléfono</label> <input id="phone" type="tel" placeholder="10 dígitos" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ice-400 focus:ring-2 focus:ring-ice-100 outline-none transition">
+      </div>
+      <div><label for="message" class="block text-sm font-semibold text-gray-700 mb-1">Mensaje</label> <textarea id="message" rows="3" placeholder="¿Qué productos te interesan?" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-ice-400 focus:ring-2 focus:ring-ice-100 outline-none transition resize-none"></textarea>
+      </div><button type="submit" class="w-full py-4 bg-gradient-to-r from-ice-500 to-frost-400 text-white font-bold rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">Enviar Mensaje</button>
+      <p id="form-success" class="hidden text-center text-green-600 font-semibold mt-2">✓ ¡Mensaje enviado! Te contactaremos pronto.</p>
+     </form>
+    </div>
+   </section><!-- Footer -->
+   <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+     <div class="flex items-center gap-2"><span>❄️</span> <span class="font-brand text-white font-bold">Alba Salina</span> <span class="text-sm">· Distribuidor Lala Eskimo</span>
+     </div>
+     <p class="text-sm">© 2024 Alba Salina. Todos los derechos reservados.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+  // Element SDK
+  const defaultConfig = {
+    hero_title: 'Alba Salina',
+    hero_subtitle: 'Distribuidor autorizado Lala Eskimo',
+    cta_text: 'Haz tu pedido',
+    background_color: '#eef8ff',
+    surface_color: '#ffffff',
+    text_color: '#1f2937',
+    primary_action: '#3399ff',
+    secondary_action: '#2dd4bf',
+    font_family: 'Fredoka',
+    font_size: 16
+  };
+
+  function applyConfig(config) {
+    document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+    document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+    document.getElementById('hero-cta').textContent = config.cta_text || defaultConfig.cta_text;
+    document.getElementById('nav-brand').textContent = config.hero_title || defaultConfig.hero_title;
+
+    const font = config.font_family || defaultConfig.font_family;
+    document.querySelectorAll('.font-brand').forEach(el => el.style.fontFamily = `${font}, sans-serif`);
+
+    const size = config.font_size || defaultConfig.font_size;
+    document.getElementById('hero-title').style.fontSize = `${size * 3.2}px`;
+    document.getElementById('hero-subtitle').style.fontSize = `${size * 1.3}px`;
+  }
+
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange: async (config) => applyConfig(config),
+    mapToCapabilities: (config) => ({
+      recolorables: [
+        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.primary_action || defaultConfig.primary_action, set: (v) => { config.primary_action = v; window.elementSdk.setConfig({ primary_action: v }); } },
+        { get: () => config.secondary_action || defaultConfig.secondary_action, set: (v) => { config.secondary_action = v; window.elementSdk.setConfig({ secondary_action: v }); } }
+      ],
+      borderables: [],
+      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+    }),
+    mapToEditPanelValues: (config) => new Map([
+      ['hero_title', config.hero_title || defaultConfig.hero_title],
+      ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+      ['cta_text', config.cta_text || defaultConfig.cta_text]
+    ])
+  });
+
+  // Form
+  document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('form-success').classList.remove('hidden');
+    e.target.reset();
+    setTimeout(() => document.getElementById('form-success').classList.add('hidden'), 4000);
+  });
+
+  // Mobile menu
+  document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+    const nav = document.querySelector('nav .hidden');
+    if (nav) nav.classList.toggle('hidden');
+  });
+
+  lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f7aeb67d29435b7',t:'MTc3ODEwMTI4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
